@@ -1,3 +1,8 @@
+local useridwhitelist = loadstring(game:HttpGet("https://pastebin.com/raw/9gJwaLwC",true))()
+if useridwhitelist[game:service('Players').LocalPlayer.UserId] then
+print("User whitelisted")
+
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("EternalzHub", "Serpent")
 local Tab = Window:NewTab("Misc")
