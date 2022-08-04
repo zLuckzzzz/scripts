@@ -2193,11 +2193,11 @@ Section:NewButton("Crystal Training", "This makes you train FS and BT faster", f
     if workspace.Town.Halloween.SecretTraining2:FindFirstChild("Part") then
         workspace.Town.Halloween.SecretTraining2.Part:Destroy()
     end
-    Player.Character.HumanoidRootPart.CFrame = CFrame.new(1640, 259, 2244)
+    Player.Character.HumanoidRootPart.CFrame = CFrame.new(-2302, 977, 1070)
     wait(0.6)
     Player.Character.UpperTorso.Waist:Destroy()
     wait(0.2)
-    Player.Character.HumanoidRootPart.CFrame = CFrame.new(-2307, 976, 1068)
+    Player.Character.HumanoidRootPart.CFrame = CFrame.new(-2302, 977, 1070)
     wait(1.2)
     Player.Character.LowerTorso:BreakJoints()
     plr = game.Players.LocalPlayer
