@@ -7,13 +7,13 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib("EternalzHub", "Serpent")
 local Tab = Window:NewTab("Misc")
 local Section = Tab:NewSection("Scripts")
-Section:NewKeybind("ON/OFF GUI", "Close and Open the GUi", Enum.KeyCode.Q, function()
+Section:NewKeybind("ON/OFF GUI", "Close and Open the GUI", Enum.KeyCode.Q, function()
 	Library:ToggleUI()
 end)
 Section:NewButton("BlackHub", "You can see other peoples stats", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FastyGame31/black-hub/main/fuck%20you"))()
 end)
-Section:NewButton("Remove FF", "tapa na sua cara", function()
+Section:NewButton("Remove FF", "Allows you to remove force field", function()
     while true do
         wait()
         for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
