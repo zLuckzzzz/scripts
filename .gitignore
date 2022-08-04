@@ -1804,7 +1804,7 @@ table.insert(playerlist,v.Name)
 end
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Main = Library.CreateLib("Eternal Stack", "Synapse")
+local Main = Library.CreateLib("LukasEternal:V9 | SPTS", "Synapse")
 local T1 = Main:NewTab("Kill")
 local S1 = T1:NewSection("Stack")
 S1:NewKeybind("ON/OFF GUI", "Set a keybind to close and open your GUI", Enum.KeyCode.E, function()
@@ -2173,6 +2173,42 @@ Section:NewButton("1B FS", "This makes you train FS and BT faster", function()
 		local args = {
 			[1] = {
 				[1] = "+FS4"
+			}
+		}
+		wait(0)
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+	end
+end)
+Section:NewButton("Crystal Training", "This makes you train FS and BT faster", function()
+    local args = {
+        [1] = {
+            [1] = "Skill_Invisible",
+            [2] = "Start"
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+    
+    local Player = game.Players.LocalPlayer
+    if workspace.Town.Halloween.SecretTraining2:FindFirstChild("Part") then
+        workspace.Town.Halloween.SecretTraining2.Part:Destroy()
+    end
+    Player.Character.HumanoidRootPart.CFrame = CFrame.new(1640, 259, 2244)
+    wait(0.6)
+    Player.Character.UpperTorso.Waist:Destroy()
+    wait(0.2)
+    Player.Character.HumanoidRootPart.CFrame = CFrame.new(-2307, 976, 1068)
+    wait(1.2)
+    Player.Character.LowerTorso:BreakJoints()
+    plr = game.Players.LocalPlayer
+	hum = plr.Character.HumanoidRootPart
+	hum.CFrame = CFrame.new(-2276,1943,1053)
+    _G.on = 1
+	while _G.on == 1
+	do
+		local args = {
+			[1] = {
+				[1] = "+FS3"
 			}
 		}
 		wait(0)
