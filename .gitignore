@@ -1804,7 +1804,7 @@ table.insert(playerlist,v.Name)
 end
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Main = Library.CreateLib("LukasEternal:V9 | SPTS", "Synapse")
+local Main = Library.CreateLib("Eternal Stack", "Synapse")
 local T1 = Main:NewTab("Kill")
 local S1 = T1:NewSection("Stack")
 S1:NewKeybind("ON/OFF GUI", "Set a keybind to close and open your GUI", Enum.KeyCode.E, function()
