@@ -24,6 +24,12 @@ Section:NewButton("Remove FF", "Allows you to remove force field", function()
     end
 
 end)
+Section:NewButton("Rejoin", "Leave the server and join again", function()
+    local ts = game:GetService("TeleportService")
+	local p = game:GetService("Players").LocalPlayer
+
+	ts:Teleport(game.PlaceId, p)
+end)
 Section:NewButton("AntiAFK", "If you click this button, roblox will can not disconnect you for inativity", function()
     script=loadstring(game:HttpGet("https://pastebin.com/raw/E7HCF6HV", true))()
 end)
