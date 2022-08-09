@@ -24,17 +24,17 @@ Section:NewButton("Remove FF", "Allows you to remove force field", function()
     end
 
 end)
-Section:NewButton("Rejoin", "Leave the server and join again", function()
-    local ts = game:GetService("TeleportService")
-	local p = game:GetService("Players").LocalPlayer
-
-	ts:Teleport(game.PlaceId, p)
-end)
 Section:NewButton("AntiAFK", "If you click this button, roblox will can not disconnect you for inativity", function()
     script=loadstring(game:HttpGet("https://pastebin.com/raw/E7HCF6HV", true))()
 end)
 Section:NewButton("Split", "Split your body", function()
     game.Players.LocalPlayer.Character.UpperTorso.Waist:Destroy()
+end)
+Section:NewButton("Rejoin", "Leave the server and join again", function()
+    local ts = game:GetService("TeleportService")
+	local p = game:GetService("Players").LocalPlayer
+
+	ts:Teleport(game.PlaceId, p)
 end)
 local Tab = Window:NewTab("Bypasses")
 local Section = Tab:NewSection("Anti kill")
@@ -1806,95 +1806,6 @@ end
 	
 end
 end)
-Section:NewButton("Stack", "Allows you to shoot more faster", function()
-    local playerlist = {};
-for i,v in pairs(game.Players:GetPlayers())do
-table.insert(playerlist,v.Name)
-end
-
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Main = Library.CreateLib("LukasEternal:V9 | SPTS", "Synapse")
-local T1 = Main:NewTab("Kill")
-local S1 = T1:NewSection("Stack")
-S1:NewKeybind("ON/OFF GUI", "Set a keybind to close and open your GUI", Enum.KeyCode.E, function()
-    Library:ToggleUI()
-end)
-
-local PlayerChosen;
-local drop = S1:NewDropdown("Player", "Other script users aren't in here", playerlist, function(new)
-    PlayerChosen = new;
-end)
-
-game.Players.PlayerAdded:Connect(function(player)
-    local name = player.Name
-        table.insert(playerlist,name)
-    drop:Refresh(playerlist)
-end)
-
-game.Players.PlayerRemoving:Connect(function(player)
-    local name = player.Name
-    for i,v in pairs(playerlist)do
-        if v == name then  
-            table.remove(playerlist,i)
-        end
-    end
-end)
-
-S1:NewToggle("Kill Everyone", "Info", function(state)
-tgo = state
-while tgo do
-task.wait()
-pcall (function()
-    local Random = game.Players:GetPlayers()[math.random(1,#game.Players:GetPlayers())]
-        if Random.PrivateStats.BodyToughness.Value <= game:GetService("Players").LocalPlayer.PrivateStats.FistStrength.Value * 2 then
-            if Random.Character.Humanoid.Health ~= 0 then
-                if not Random.Character:FindFirstChild("SafeZoneShield") then 
-local x = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.x
-local z = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.z
-
-local x2 = Random.Character.HumanoidRootPart.Position.x
-local y = Random.Character.HumanoidRootPart.Position.y
-local z2 = Random.Character.HumanoidRootPart.Position.z
-local args = {[1] = {[1] = "Skill_SpherePunch",[2] = Vector3.new(x, 10000, z)}}
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-for i, v in ipairs (game:GetService("Workspace").Storage:GetChildren()) do
-    if v.Name == "EnergySphere9" then
-        v.CFrame = CFrame.new(x2, y, z2)
-    end 
-end
-end
-end
-end
-end)
-end
-end)
-
-S1:NewToggle("Kill One", "Info", function(state)
-da = state
-while da do
-task.wait()
-pcall (function()
-            if game.Players:FindFirstChild(PlayerChosen).Character.Humanoid.Health ~= 0 then
-                if not game.Players:FindFirstChild(PlayerChosen).Character:FindFirstChild("SafeZoneShield") then 
-local x = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.x
-local z = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.z
-
-local x2 = game.Players:FindFirstChild(PlayerChosen).Character.HumanoidRootPart.Position.x
-local y = game.Players:FindFirstChild(PlayerChosen).Character.HumanoidRootPart.Position.y
-local z2 = game.Players:FindFirstChild(PlayerChosen).Character.HumanoidRootPart.Position.z
-local args = {[1] = {[1] = "Skill_SpherePunch",[2] = Vector3.new(x, 10000, z)}}
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-for i, v in ipairs (game:GetService("Workspace").Storage:GetChildren()) do
-    if v.Name == "EnergySphere9" then
-        v.CFrame = CFrame.new(x2, y, z2)
-    end 
-end
-end
-end
-end)
-end
-end)
-end)
 Section:NewToggle("Auto Punch", "Allows you to punch automatically", function(state)
     if state then
         _G.Spam = true
@@ -2058,62 +1969,148 @@ Section:NewToggle("FF Abuse", "Respawn your character automatically", function(s
 	end
     end
 end)
-Section:NewToggle("Stack2.0", "nao vai funcionar direito, é isso", function(state)
-    if state then
-        local plr = game:GetService("Players").LocalPlayer
-local mouse = plr:GetMouse()
 
-_G.Loop = true;
+local playerfiststat = game:GetService("Players").LocalPlayer.PrivateStats.FistStrength.Value
+	local ballstat = ""
 
-for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
-if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
-game:GetService("RunService").Heartbeat:connect(function()
-v.Velocity = Vector3.new(0,35,0)
-wait(0.5)
-end)
-end
-end
+	repeat wait() until game.Players.LocalPlayer.PrivateStats:FindFirstChild("FistStrength")
 
-mouse.KeyDown:connect(function(key)
-if key == "c" then
-    for i,v in pairs(game.Workspace.Storage:GetChildren()) do
-        if(v.Name=='EnergySphere9') then
-            v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame
-        end
-    end
-end
+	if playerfiststat >= 999 and playerfiststat <= 10000 then ballstat = "EnergySphere1"
+	elseif playerfiststat >= 9999 and playerfiststat <= 100000 then ballstat = "EnergySphere2"
+	elseif playerfiststat >= 99999 and playerfiststat <= 1000000 then ballstat = "EnergySphere3"
+	elseif playerfiststat >= 999999 and playerfiststat <= 10000000 then ballstat = "EnergySphere4"
+	elseif playerfiststat >= 9999999 and playerfiststat <= 100000000 then ballstat = "EnergySphere5"
+	elseif playerfiststat >= 99999999 and playerfiststat <= 10000000000 then ballstat = "EnergySphere6"
+	elseif playerfiststat >= 9999999999 and playerfiststat <= 1000000000000 then ballstat = "EnergySphere7"
+	elseif playerfiststat >= 999999999999 and playerfiststat <= 1000000000000000 then ballstat = "EnergySphere8"
+	elseif playerfiststat >= 999999999999999 then ballstat = "EnergySphere9"
+	end
 
-if key == 'm' then
-if(_G.Loop) then
-_G.Loop = false;
-else
-_G.Loop = true;
-end
-end
-end)
+	local playerlist = {};
+	for i,v in pairs(game.Players:GetPlayers())do
+		table.insert(playerlist,v.Name)
+	end
+
+    local playerfiststat = game:GetService("Players").LocalPlayer.PrivateStats.FistStrength.Value
+	local ballstat = ""
+
+	repeat wait() until game.Players.LocalPlayer.PrivateStats:FindFirstChild("FistStrength")
+
+	if playerfiststat >= 999 and playerfiststat <= 10000 then ballstat = "EnergySphere1"
+	elseif playerfiststat >= 9999 and playerfiststat <= 100000 then ballstat = "EnergySphere2"
+	elseif playerfiststat >= 99999 and playerfiststat <= 1000000 then ballstat = "EnergySphere3"
+	elseif playerfiststat >= 999999 and playerfiststat <= 10000000 then ballstat = "EnergySphere4"
+	elseif playerfiststat >= 9999999 and playerfiststat <= 100000000 then ballstat = "EnergySphere5"
+	elseif playerfiststat >= 99999999 and playerfiststat <= 10000000000 then ballstat = "EnergySphere6"
+	elseif playerfiststat >= 9999999999 and playerfiststat <= 1000000000000 then ballstat = "EnergySphere7"
+	elseif playerfiststat >= 999999999999 and playerfiststat <= 1000000000000000 then ballstat = "EnergySphere8"
+	elseif playerfiststat >= 999999999999999 then ballstat = "EnergySphere9"
+	end
+
+	local playerlist = {};
+	for i,v in pairs(game.Players:GetPlayers())do
+		table.insert(playerlist,v.Name)
+	end
+
+	local Tab = Window:NewTab("Eternal Stack")
+	local Section = Tab:NewSection("Stacking")
+	
+	local PlayerChosen;
+	Section:NewDropdown("Theres no player in Stack table.", "Select the retard", playerlist, function(new)
+        PlayerChosen = new;
+    end)
+    
+	game.Players.PlayerAdded:Connect(function(player)
+		local name = player.Name
+		table.insert(playerlist,name)
+		drop:Refresh(playerlist)
+	end)
+
+	game.Players.PlayerRemoving:Connect(function(player)
+		local name = player.Name
+		for i,v in pairs(playerlist)do
+			if v == name then  
+				table.remove(playerlist,i)
+			end
+		end
+	end)
+
+	Section:NewToggle("Kill All", "Say goodbye for the server", function(state)
+		tgo = state
+		while tgo do
+			task.wait()
+			pcall (function()
+				local Random = game.Players:GetPlayers()[math.random(1,#game.Players:GetPlayers())]
+				if Random.PrivateStats.BodyToughness.Value <= game:GetService("Players").LocalPlayer.PrivateStats.FistStrength.Value * 2 then
+					if Random.Character.Humanoid.Health ~= 0 then
+						if not Random.Character:FindFirstChild("SafeZoneShield") then 
+							local x = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.x
+							local z = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.z
+
+							local x2 = Random.Character.HumanoidRootPart.Position.x
+							local y = Random.Character.HumanoidRootPart.Position.y
+							local z2 = Random.Character.HumanoidRootPart.Position.z
+							local args = {[1] = {[1] = "Skill_SpherePunch",[2] = Vector3.new(x, 10000, z)}}
+							game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+							for i, v in ipairs (game:GetService("Workspace").Storage:GetChildren()) do
+								if v.Name == ballstat then
+									v.CFrame = CFrame.new(x2, y, z2)
+								end 
+							end
+						end
+					end
+				end
+			end)
+		end
+	end)
 
 
+	Section:NewToggle("Kill One", ",Makes the ppl quit, trust", function(state)
+		da = state
+		while da do
+			task.wait()
+			pcall (function()
+				if game.Players:FindFirstChild(PlayerChosen).Character.Humanoid.Health ~= 0 then
+
+					local x = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.x
+					local z = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.z
+
+					local x2 = game.Players:FindFirstChild(PlayerChosen).Character.HumanoidRootPart.Position.x
+					local y = game.Players:FindFirstChild(PlayerChosen).Character.HumanoidRootPart.Position.y
+					local z2 = game.Players:FindFirstChild(PlayerChosen).Character.HumanoidRootPart.Position.z
+					local args = {[1] = {[1] = "Skill_SpherePunch",[2] = Vector3.new(x,100000000000000000000000000,z)}}
+					game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
 
-while (_G.Loop) do
-task.wait()
-local args = {
-    [1] = {
-        [1] = "Skill_SpherePunch",
-        [2] = Vector3.new(-2614.88720703125, 15044.69921875, -2978.564453125)
-    }
-}
+					local l = 
+						{
+							[1] = "Skill_SpherePunch", 
+							[2] = "Left", 
+							[3] = Vector3.new(x, 10000, z)
+						}
+					local Event = game:GetService("ReplicatedStorage").RemoteEvent
+					Event:FireServer(l)
+					game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+					for i,v in pairs(game.Workspace.Storage:GetChildren()) do
+						if isnetworkowner(v) then
+							if v.Name == ballstat then
+								v.CFrame = CFrame.new(x, y+20, z)
+								wait()
+								v.CFrame = CFrame.new(x, y, z)
 
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-end
-    else
-        if(_G.Loop) then
-            _G.Loop = false;
-            else
-            _G.Loop = true;
-            end
-            end
-end)
+
+							end
+						end
+						if game:GetService("Players"):FindFirstChild(PlayerChosen) == game.Players.LocalPlayer then
+							return
+						else
+							game.Players:FindFirstChild(PlayerChosen).Character.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame*CFrame.new(0,0,-5)
+						end
+					end
+				end
+			end)
+		end
+	end)
 local Tab = Window:NewTab("Admins")
 local Section = Tab:NewSection("Admin GUI's")
 Section:NewButton("InfYield", "Find out for yourself", function()
