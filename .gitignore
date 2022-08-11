@@ -2280,7 +2280,7 @@ end)
 local Tab = Window:NewTab("Fist Strength")
 local Section = Tab:NewSection("Fast Farm")
 Section:NewButton("10T FS", "This makes you train FS and BT faster", function()
-    local args = {
+	local args = {
         [1] = {
             [1] = "Skill_Invisible",
             [2] = "Start"
@@ -2303,17 +2303,15 @@ Section:NewButton("10T FS", "This makes you train FS and BT faster", function()
     plr = game.Players.LocalPlayer
 	hum = plr.Character.HumanoidRootPart
 	hum.CFrame = CFrame.new(-369,15736,-9)
-    _G.on = 1
-	while _G.on == 1
-	do
-		local args = {
-			[1] = {
-				[1] = "+FS6"
-			}
-		}
-		wait(0)
-		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-	end
+getgenv().AutoFist = true
+
+while AutoFist == true do
+    for FastFS = 1,5 do 
+        wait()
+local args = {[1] = {[1] = "+FS6"}}
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+end
 end)
 
 local Imput = game:GetService("UserInputService")
@@ -2348,17 +2346,15 @@ Section:NewButton("100B FS", "This makes you train FS and BT faster", function()
     plr = game.Players.LocalPlayer
 	hum = plr.Character.HumanoidRootPart
 	hum.CFrame = CFrame.new(1381,9274,1647)
-    _G.on = 1
-	while _G.on == 1
-	do
-		local args = {
-			[1] = {
-				[1] = "+FS5"
-			}
-		}
-		wait(0)
-		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-	end
+    getgenv().AutoFist = true
+
+while AutoFist == true do
+    for FastFS = 1,5 do 
+        wait()
+local args = {[1] = {[1] = "+FS5"}}
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+end
 end)
 Section:NewButton("1B FS", "This makes you train FS and BT faster", function()
     local args = {
@@ -2384,17 +2380,15 @@ Section:NewButton("1B FS", "This makes you train FS and BT faster", function()
     plr = game.Players.LocalPlayer
 	hum = plr.Character.HumanoidRootPart
 	hum.CFrame = CFrame.new(1176,4789,-2293)
-    _G.on = 1
-	while _G.on == 1
-	do
-		local args = {
-			[1] = {
-				[1] = "+FS4"
-			}
-		}
-		wait(0)
-		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-	end
+    getgenv().AutoFist = true
+
+while AutoFist == true do
+    for FastFS = 1,5 do 
+        wait()
+local args = {[1] = {[1] = "+FS4"}}
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+end
 end)
 Section:NewButton("Crystal Training", "This makes you train FS and BT faster", function()
     local args = {
@@ -2420,16 +2414,14 @@ Section:NewButton("Crystal Training", "This makes you train FS and BT faster", f
     plr = game.Players.LocalPlayer
 	hum = plr.Character.HumanoidRootPart
 	hum.CFrame = CFrame.new(-2276,1943,1053)
-    _G.on = 1
-	while _G.on == 1
-	do
-		local args = {
-			[1] = {
-				[1] = "+FS3"
-			}
-		}
-		wait(0)
-		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+	getgenv().AutoFist = true
+
+	while AutoFist == true do
+		for FastFS = 1,5 do 
+			wait()
+	local args = {[1] = {[1] = "+FS3"}}
+	game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+	end
 	end
 end)
 local Tab = Window:NewTab("Psychic Power")
@@ -2458,17 +2450,15 @@ Section:NewButton("1Qa", "This makes you train PP and BT faster", function()
     plr = game.Players.LocalPlayer
 	hum = plr.Character.HumanoidRootPart
 	hum.CFrame = CFrame.new(-2557,5416,-498)
-    _G.on = 1
-	while _G.on == 1
-	do
-		local args = {
-			[1] = {
-				[1] = "+PP6"
-			}
-		}
-		wait(0)
-		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-	end
+    getgenv().AutoPsychic = true
+
+while AutoPsychic == true do
+    for FastPP = 1,5 do 
+        wait()
+local args = {[1] = {[1] = "+PP6"}}
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+end
 end)
 Section:NewButton("1T", "This makes you train PP and BT faster", function()
     local args = {
@@ -2494,16 +2484,14 @@ Section:NewButton("1T", "This makes you train PP and BT faster", function()
     plr = game.Players.LocalPlayer
 	hum = plr.Character.HumanoidRootPart
 	hum.CFrame = CFrame.new(-2582,5516,-504)
-    _G.on = 1
-	while _G.on == 1
-	do
-		local args = {
-			[1] = {
-				[1] = "+PP5"
-			}
-		}
-		wait(0)
-		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+	getgenv().AutoPsychic = true
+
+	while AutoPsychic == true do
+		for FastPP = 1,5 do 
+			wait()
+	local args = {[1] = {[1] = "+PP5"}}
+	game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+	end
 	end
 end)
 Section:NewButton("1B", "This makes you train PP and BT faster", function()
@@ -2530,17 +2518,15 @@ Section:NewButton("1B", "This makes you train PP and BT faster", function()
     plr = game.Players.LocalPlayer
 	hum = plr.Character.HumanoidRootPart
 	hum.CFrame = CFrame.new(-2560,5501,-439)
-    _G.on = 1
-	while _G.on == 1
-	do
-		local args = {
-			[1] = {
-				[1] = "+PP4"
-			}
-		}
-		wait(0)
-		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-	end
+    getgenv().AutoPsychic = true
+
+while AutoPsychic == true do
+    for FastPP = 1,5 do 
+        wait()
+local args = {[1] = {[1] = "+PP4"}}
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+end
 end)
 Section:NewButton("1M", "This makes you train PP and BT faster", function()
     local args = {
@@ -2566,16 +2552,14 @@ Section:NewButton("1M", "This makes you train PP and BT faster", function()
     plr = game.Players.LocalPlayer
 	hum = plr.Character.HumanoidRootPart
 	hum.CFrame = CFrame.new(-2527,5486,-532)
-    _G.on = 1
-	while _G.on == 1
-	do
-		local args = {
-			[1] = {
-				[1] = "+PP3"
-			}
-		}
-		wait(0)
-		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+	getgenv().AutoPsychic = true
+
+	while AutoPsychic == true do
+		for FastPP = 1,5 do 
+			wait()
+	local args = {[1] = {[1] = "+PP3"}}
+	game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+	end
 	end
 end)
 local plr = game:GetService("Players").LocalPlayer
