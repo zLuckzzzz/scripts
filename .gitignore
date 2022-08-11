@@ -36,6 +36,19 @@ Section:NewButton("Rejoin", "Leave the server and join again", function()
 
 	ts:Teleport(game.PlaceId, p)
 end)
+Section:NewButton("Earrape", "Well.. Be careful", function()
+    while wait(0.2) do
+		for _,plr in pairs(game.Players:GetPlayers()) do
+			pcall(function()
+				for _,obj in pairs(plr.Character.Head:GetChildren()) do
+					if obj:IsA("Sound") then
+						obj:Play()
+					end
+				end
+			end)
+		end
+	end
+end)
 local Tab = Window:NewTab("Bypasses")
 local Section = Tab:NewSection("Anti kill")
 Section:NewButton("NoVoid", "This button removes your hand", function()
@@ -2264,10 +2277,11 @@ end)
 Section:NewButton("CMD-X", "Find out for yourself", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
 end)
-local Tab = Window:NewTab("Fist Strength")
-local Section = Tab:NewSection("Fast Farm")
-Section:NewButton("10T FS", "This makes you train FS and BT faster", function()
-	local args = {
+
+local Tab = Window:NewTab("Fast Farm")
+local Section = Tab:NewSection("Fist Strength")
+Section:NewButton("10T", "This makes you train BT and FS faster", function()
+    local args = {
         [1] = {
             [1] = "Skill_Invisible",
             [2] = "Start"
@@ -2300,17 +2314,8 @@ game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 end
 end
 end)
-
-local Imput = game:GetService("UserInputService")
-Imput.InputBegan:connect(function(inst)
-    if inst.KeyCode == Enum.KeyCode.F2 then
-        game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
-Wait(2.)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(324,249,846	)
-    end
-end)
-Section:NewButton("100B FS", "This makes you train FS and BT faster", function()
-    local args = {
+Section:NewButton("100B", "This makes you train BT and FS faster", function()
+	local args = {
         [1] = {
             [1] = "Skill_Invisible",
             [2] = "Start"
@@ -2343,8 +2348,8 @@ game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 end
 end
 end)
-Section:NewButton("1B FS", "This makes you train FS and BT faster", function()
-    local args = {
+Section:NewButton("1B", "This makes you train BT and FS faster", function()
+	local args = {
         [1] = {
             [1] = "Skill_Invisible",
             [2] = "Start"
@@ -2377,8 +2382,8 @@ game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 end
 end
 end)
-Section:NewButton("Crystal Training", "This makes you train FS and BT faster", function()
-    local args = {
+Section:NewButton("Crystal Training", "This makes you train BT and FS faster", function()
+	local args = {
         [1] = {
             [1] = "Skill_Invisible",
             [2] = "Start"
@@ -2411,8 +2416,7 @@ Section:NewButton("Crystal Training", "This makes you train FS and BT faster", f
 	end
 	end
 end)
-local Tab = Window:NewTab("Psychic Power")
-local Section = Tab:NewSection("Fast Farm")
+local Section = Tab:NewSection("Psychic Power")
 Section:NewButton("1Qa", "This makes you train PP and BT faster", function()
     local args = {
         [1] = {
@@ -2444,8 +2448,8 @@ while AutoPsychic == true do
         wait()
 local args = {[1] = {[1] = "+PP6"}}
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-end
-end
+    end
+    end
 end)
 Section:NewButton("1T", "This makes you train PP and BT faster", function()
     local args = {
@@ -2548,7 +2552,7 @@ Section:NewButton("1M", "This makes you train PP and BT faster", function()
 	game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 	end
 	end
-end)
+end)	
 local plr = game:GetService("Players").LocalPlayer
 local mouse = plr:GetMouse()
 
@@ -2561,67 +2565,4 @@ if key == "c" then
     end
 end
 end)
-
-while wait(.5) do
-	for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-		if v.Name == "TouchInterest" then
-			v:Destroy()
-		end
-	end
-end
-
-game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuBtn.BackgroundColor3 = Color3.new(0,0,0)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.BackgroundColor3 = Color3.new(0,0,0)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.GangFrame.BackgroundColor3 = Color3.new(0,0,0)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SpecialFrame.BackgroundColor3 = Color3.new(0,0,0)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.BackgroundColor3 = Color3.new(0,0,0)
-	game:GetService('Players').LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.BackgroundColor3 = Color3.new(0,0,0)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.NameTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.RankTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.StatusTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.KilledTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.FSTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.BTTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.MSTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.JFTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.PPTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.RepTxt.TextColor3 = Color3.new(255, 255, 255)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.InfoFrame.GuideTxt.TextColor3 = Color3.new(0, 0, 0)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt1.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt2.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt3.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt4.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt5.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt6.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt7.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt8.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt9.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt10.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt11.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt13.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt14.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt15.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt16.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt17.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt18.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SkillFrame.SkillTxt19.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt1.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt2.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt3.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt4.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt5.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt6.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt7.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt8.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt9.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt10.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt11.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt12.TextColor3 =Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt13.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt14.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt15.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt16.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt17.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt18.TextColor3 = Color3.new(74, 195, 68)
-	game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenuFrame.SettingFrame.SettingTxt0.TextColor3 = Color3.new(74, 195, 68)
 end
