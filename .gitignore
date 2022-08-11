@@ -36,19 +36,6 @@ Section:NewButton("Rejoin", "Leave the server and join again", function()
 
 	ts:Teleport(game.PlaceId, p)
 end)
-Section:NewButton("Earrape", "Well.. Be careful", function()
-    while wait(0.2) do
-		for _,plr in pairs(game.Players:GetPlayers()) do
-			pcall(function()
-				for _,obj in pairs(plr.Character.Head:GetChildren()) do
-					if obj:IsA("Sound") then
-						obj:Play()
-					end
-				end
-			end)
-		end
-	end
-end)
 local Tab = Window:NewTab("Bypasses")
 local Section = Tab:NewSection("Anti kill")
 Section:NewButton("NoVoid", "This button removes your hand", function()
