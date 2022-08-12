@@ -2540,18 +2540,6 @@ Section:NewButton("1M", "This makes you train PP and BT faster", function()
 	end
 	end
 end)	
-local plr = game:GetService("Players").LocalPlayer
-local mouse = plr:GetMouse()
-
-mouse.KeyDown:connect(function(key)
-if key == "c" then
-    for i,v in pairs(game.Workspace.Storage:GetChildren()) do
-        if(v.Name=='EnergySphere9') then
-            v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame
-        end
-    end
-end
-end)
 
 local Imput = game:GetService("UserInputService")
 Imput.InputBegan:connect(function(inst)
