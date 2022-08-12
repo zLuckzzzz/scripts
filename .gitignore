@@ -2568,7 +2568,7 @@ end)
 
 local Imput = game:GetService("UserInputService")
 Imput.InputBegan:connect(function(inst)
-    if inst.KeyCode == Enum.KeyCode.F1 then
+    if inst.KeyCode == Enum.KeyCode.F2 then
         game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
 Wait(2.)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(324,249,846)
