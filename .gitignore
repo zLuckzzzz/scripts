@@ -2253,6 +2253,77 @@ local playerfiststat = game:GetService("Players").LocalPlayer.PrivateStats.FistS
 		end
 		end
 	end)
+	Section:NewToggle("Anti Psychic (press F2 x2)", "zzz", function(state)
+		if state then
+			local state = true;
+if state then
+    _G.on = 1
+while _G.on == 1 do
+    wait(0.01)
+    local ohTable1 = {
+        [1] = "Weight",
+        [2] = "Weight1",
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable1)
+
+    wait(0.01)
+    local ohTable2 = {
+        [1] = "Weight",
+        [2] = "Weight2",
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable2)
+
+    wait(0.01)
+    local ohTable3 = {
+        [1] = "Weight",
+        [2] = "Weight3"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable3)
+
+    wait(0.01)
+    local ohTable4 = {
+        [1] = "Weight",
+        [2] = "Weight4"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable4)
+end
+end
+		else
+			local state = true;
+if state then
+    _G.on = 0
+while _G.on == 1 do
+    wait(0.01)
+    local ohTable1 = {
+        [1] = "Weight",
+        [2] = "Weight1",
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable1)
+
+    wait(0.01)
+    local ohTable2 = {
+        [1] = "Weight",
+        [2] = "Weight2",
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable2)
+
+    wait(0.01)
+    local ohTable3 = {
+        [1] = "Weight",
+        [2] = "Weight3"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable3)
+
+    wait(0.01)
+    local ohTable4 = {
+        [1] = "Weight",
+        [2] = "Weight4"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable4)
+end
+end
+		end
+	end)
 local Tab = Window:NewTab("Admins")
 local Section = Tab:NewSection("Admin GUI's")
 Section:NewButton("InfYield", "Find out for yourself", function()
