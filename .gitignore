@@ -2365,7 +2365,7 @@ Section:NewButton("10T", "This makes you train BT and FS faster", function()
 getgenv().AutoFist = true
 
 while AutoFist == true do
-    for FastFS = 1,5 do 
+    for FastFS = 1,9 do 
         wait()
 local args = {[1] = {[1] = "+FS6"}}
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
@@ -2399,7 +2399,7 @@ Section:NewButton("100B", "This makes you train BT and FS faster", function()
     getgenv().AutoFist = true
 
 while AutoFist == true do
-    for FastFS = 1,5 do 
+    for FastFS = 1,9 do 
         wait()
 local args = {[1] = {[1] = "+FS5"}}
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
@@ -2433,7 +2433,7 @@ Section:NewButton("1B", "This makes you train BT and FS faster", function()
     getgenv().AutoFist = true
 
 while AutoFist == true do
-    for FastFS = 1,5 do 
+    for FastFS = 1,9 do 
         wait()
 local args = {[1] = {[1] = "+FS4"}}
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
@@ -2467,7 +2467,7 @@ Section:NewButton("Crystal Training", "This makes you train BT and FS faster", f
 	getgenv().AutoFist = true
 
 	while AutoFist == true do
-		for FastFS = 1,5 do 
+		for FastFS = 1,9 do 
 			wait()
 	local args = {[1] = {[1] = "+FS3"}}
 	game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
@@ -2502,7 +2502,7 @@ Section:NewButton("1Qa", "This makes you train PP and BT faster", function()
     getgenv().AutoPsychic = true
 
 while AutoPsychic == true do
-    for FastPP = 1,5 do 
+    for FastPP = 1,9 do 
         wait()
 local args = {[1] = {[1] = "+PP6"}}
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
@@ -2536,7 +2536,7 @@ Section:NewButton("1T", "This makes you train PP and BT faster", function()
 	getgenv().AutoPsychic = true
 
 	while AutoPsychic == true do
-		for FastPP = 1,5 do 
+		for FastPP = 1,9 do 
 			wait()
 	local args = {[1] = {[1] = "+PP5"}}
 	game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
@@ -2570,7 +2570,7 @@ Section:NewButton("1B", "This makes you train PP and BT faster", function()
     getgenv().AutoPsychic = true
 
 while AutoPsychic == true do
-    for FastPP = 1,5 do 
+    for FastPP = 1,9 do 
         wait()
 local args = {[1] = {[1] = "+PP4"}}
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
@@ -2604,7 +2604,7 @@ Section:NewButton("1M", "This makes you train PP and BT faster", function()
 	getgenv().AutoPsychic = true
 
 	while AutoPsychic == true do
-		for FastPP = 1,5 do 
+		for FastPP = 1,9 do 
 			wait()
 	local args = {[1] = {[1] = "+PP3"}}
 	game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
