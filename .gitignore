@@ -2620,4 +2620,35 @@ Wait(2.)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(324,249,846)
     end
 end)
+
+while not game:IsLoaded() or not game:GetService("CoreGui") or not game:GetService("Players").LocalPlayer or not game:GetService("Players").LocalPlayer.PlayerGui do wait() end
+wait(2)
+
+function PlayerJoined(text)
+    game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage", {
+        Text = text;
+        Color = Color3.fromRGB(0, 255, 26);
+        Font = Enum.Font.SourceSansBold;
+        TextSize = 20
+    })
+end
+
+
+function PlayerLeft(text)
+    game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage", {
+        Text = text;
+        Color = Color3.fromRGB(255, 0, 0);
+        Font = Enum.Font.SourceSansBold;
+        TextSize = 20
+    })
+end
+
+
+game:GetService("Players").PlayerAdded:Connect(function(whojoined)
+    PlayerJoined(whojoined.DisplayName.." (@"..whojoined.Name..") just joined the server")
+end)
+
+game:GetService("Players").PlayerRemoving:Connect(function(wholeft)
+    PlayerLeft(wholeft.DisplayName.." (@"..wholeft.Name..") just left the server")
+end)
 end
