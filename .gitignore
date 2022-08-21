@@ -30,29 +30,10 @@ end)
 Section:NewButton("Split", "Split your body", function()
     game.Players.LocalPlayer.Character.UpperTorso.Waist:Destroy()
 end)
-Section:NewButton("Rejoin", "Leave the server and join again", function()
-    local ts = game:GetService("TeleportService")
-	local p = game:GetService("Players").LocalPlayer
-
-	ts:Teleport(game.PlaceId, p)
-end)
 local Tab = Window:NewTab("Bypasses")
 local Section = Tab:NewSection("Anti kill")
-Section:NewButton("NoVoid", "This button removes your hand", function()
-    while wait() do
-		if game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool") then
-			game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):UnequipTools()
-		end
-		game.Players.LocalPlayer.Backpack:ClearAllChildren()
-		wait(0.80)
-		game.Players.LocalPlayer.Character.RightHand:Destroy()
-	end
-end)
 Section:NewButton("Force Field", "This button add an force field to your self", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/1ArcX/Scripts/main/God%20Mode", true))()
-end)
-Section:NewButton("NoRepTaken", "This function remove the nickname in your head", function()
-    game.Players.LocalPlayer.Character.Head.NameBbGui.NameTxt: Destroy()
 end)
 Section:NewButton("Insta Respawn", "Instantly respawn when you get hit", function()
     if game.PlaceId ~= 2202352383 then
@@ -159,40 +140,6 @@ Section:NewButton("Health Respawn", "Respawn when your life is below 30%", funct
             end
         )
     end
-end)
-Section:NewButton("50% HP Respawn", "Respawn when your life is 50%", function()
-    local Imput = game:GetService("UserInputService")
-	Imput.InputBegan:connect(function(inst)
-		if inst.KeyCode == Enum.KeyCode.F1 then
-			_G.on = 1
-			while _G.on == 1
-			do
-				print("Now your character will respawn")
-				wait(9)
-				local SavePosition = Instance.new("TextLabel")
-				player = game.Players.LocalPlayer.Character.Humanoid
-				player.HealthChanged:Connect(function(hp)
-					if hp <= player.MaxHealth * 0.5 then
-						wait()
-						game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
-						lastlocationx = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.x
-						lastlocationy = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.y
-						lastlocationz = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.z
-						SavePosition.Text = "Last Place: " ..lastlocationx.. "," ..lastlocationy.. "," ..lastlocationz.. ","
-						--print(tostring(SavePosition.Text))
-						--print("Player " ..tostring(game.Players.LocalPlayer.Name).. " Respawn")
-						--print(tostring(SavePosition.Text))
-						wait(1.599)
-						--print("screengui disabled")
-						repeat wait() until game.Players.LocalPlayer.Character.Humanoid
-						--print("Teleporting back to " ..tostring(SavePosition.Text))
-						local FindHum = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastlocationx, lastlocationy, lastlocationz)
-					end
-				end)
-			end
-		end
-	end)
 end)
 Section:NewButton("Anti Chat Log", "Now you can say shits, good luck", function()
     local mt = getrawmetatable(game)
@@ -2612,15 +2559,6 @@ Section:NewButton("1M", "This makes you train PP and BT faster", function()
 	end
 end)	
 
-local Imput = game:GetService("UserInputService")
-Imput.InputBegan:connect(function(inst)
-    if inst.KeyCode == Enum.KeyCode.F2 then
-        game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
-Wait(2.)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(324,249,846)
-    end
-end)
-
 while not game:IsLoaded() or not game:GetService("CoreGui") or not game:GetService("Players").LocalPlayer or not game:GetService("Players").LocalPlayer.PlayerGui do wait() end
 wait(2)
 
@@ -2652,3 +2590,120 @@ game:GetService("Players").PlayerRemoving:Connect(function(wholeft)
     PlayerLeft(wholeft.DisplayName.." (@"..wholeft.Name..") just left the server")
 end)
 end
+
+if game.PlaceId ~= 2202352383 then
+    return
+end
+while not game:IsLoaded() or not game:GetService("CoreGui") or not game:GetService("Players").LocalPlayer or
+    not game:GetService("Players").LocalPlayer.PlayerGui do
+    wait()
+end
+_G.FF = true
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(
+    function(input, isTyping)
+        if isTyping then
+            return
+        elseif input.KeyCode == Enum.KeyCode.F5 then
+            while _G.FF do
+                task.wait()
+                game.Lighting.Blur.Enabled = false
+                game.Players.LocalPlayer.PlayerGui.IntroGui.Enabled = false
+                game.Players.LocalPlayer.PlayerGui.ScreenGui.Enabled = true
+                game.Players.LocalPlayer.Character.ForceField:remove()
+            end
+        end
+    end
+)
+
+UIS.InputBegan:Connect(
+    function(input, isTyping)
+        if isTyping then
+            return
+        elseif input.KeyCode == Enum.KeyCode.F3 then
+            while _G.FF do
+                task.wait(.5)
+                game.Players.LocalPlayer.Character.RightHand:Destroy()
+                if game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+			game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):UnequipTools()
+		end
+		game.Players.LocalPlayer.Backpack:ClearAllChildren()
+		wait(0.80)
+		game.Players.LocalPlayer.Character.RightHand:Destroy()
+            end
+        end
+    end
+)
+
+UIS.InputBegan:Connect(
+    function(input, isTyping)
+        if isTyping then
+            return
+        elseif input.KeyCode == Enum.KeyCode.F7 then
+            _G.FF = false
+        end
+    end
+)
+
+UIS.InputBegan:Connect(
+    function(input, isTyping)
+        if isTyping then
+            return
+        elseif input.KeyCode == Enum.KeyCode.F1 then
+            pcall(
+                function()
+                    local j = game.Players.LocalPlayer.Character:GetPrimaryPartCFrame()
+                    game.Lighting.Blur.Enabled = false
+                    game.Players.LocalPlayer.PlayerGui.IntroGui.Enabled = false
+                    game.Players.LocalPlayer.PlayerGui.ScreenGui.Enabled = true
+                    game.Players.LocalPlayer.Character:remove()
+                    wait()
+                    game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
+                    wait(1.67)
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(j)
+                    wait()
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(j)
+                    wait()
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(j)
+                end
+            )
+        end
+    end
+)
+
+UIS.InputBegan:Connect(
+    function(input, isTyping)
+        if isTyping then
+            return
+        elseif input.KeyCode == Enum.KeyCode.F4 then
+            while _G.FF do
+                task.wait(1.68)
+                game.Players.LocalPlayer.Character.Head.NameBbGui.NameTxt: Destroy()
+            end
+        end
+    end
+)
+
+local Imput = game:GetService("UserInputService")
+    Imput.InputBegan:connect(function(inst)
+    if inst.KeyCode == Enum.KeyCode.F6 then
+_G.on = 1
+    while _G.on == 1
+ do
+wait(2) game:GetService("TeleportService"):Teleport(2202352383, LocalPlayer)
+end
+end
+end)
+
+
+local Imput = game:GetService("UserInputService")
+Imput.InputBegan:connect(function(inst)
+    if inst.KeyCode == Enum.KeyCode.F2 then
+        game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
+Wait(1)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3000,-494,1258)
+Wait(1.3) 
+end
+end)
