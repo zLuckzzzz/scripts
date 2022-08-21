@@ -2200,7 +2200,7 @@ local playerfiststat = game:GetService("Players").LocalPlayer.PrivateStats.FistS
 		end
 		end
 	end)
-	Section:NewToggle("Anti Psychic (press F2 x2)", "zzz", function(state)
+	Section:NewToggle("Anti Psychic (press F1 x2)", "zzz", function(state)
 		if state then
 			local state = true;
 if state then
