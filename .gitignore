@@ -2206,28 +2206,28 @@ local playerfiststat = game:GetService("Players").LocalPlayer.PrivateStats.FistS
 if state then
     _G.on = 1
 while _G.on == 1 do
-    wait(0.01)
+    wait(0.001)
     local ohTable1 = {
         [1] = "Weight",
         [2] = "Weight1",
     }
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable1)
 
-    wait(0.01)
+    wait(0.001)
     local ohTable2 = {
         [1] = "Weight",
         [2] = "Weight2",
     }
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable2)
 
-    wait(0.01)
+    wait(0.001)
     local ohTable3 = {
         [1] = "Weight",
         [2] = "Weight3"
     }
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable3)
 
-    wait(0.01)
+    wait(0.001)
     local ohTable4 = {
         [1] = "Weight",
         [2] = "Weight4"
@@ -2240,28 +2240,28 @@ end
 if state then
     _G.on = 0
 while _G.on == 1 do
-    wait(0.01)
+    wait(0.001)
     local ohTable1 = {
         [1] = "Weight",
         [2] = "Weight1",
     }
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable1)
 
-    wait(0.01)
+    wait(0.001)
     local ohTable2 = {
         [1] = "Weight",
         [2] = "Weight2",
     }
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable2)
 
-    wait(0.01)
+    wait(0.001)
     local ohTable3 = {
         [1] = "Weight",
         [2] = "Weight3"
     }
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable3)
 
-    wait(0.01)
+    wait(0.001)
     local ohTable4 = {
         [1] = "Weight",
         [2] = "Weight4"
